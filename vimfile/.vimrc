@@ -1,0 +1,1 @@
+/Users/kenta/dotfiles/.vimrc
