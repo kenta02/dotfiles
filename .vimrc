@@ -385,20 +385,20 @@ if has('conceal')
 endif
 
 " ~ファイルタイプ毎 & gitリポジトリ毎にtagsの読み込みpathを変える~
-function! ReadTags(type)
-    try
-        execute "set tags=".$HOME."/dotfiles/tags_files/".
-              \ system("cd " . expand('%:p:h') . "; basename `git rev-parse --show-toplevel` | tr -d '\n'").
-              \ "/" . a:type . "_tags"
-    catch
-        execute "set tags=./tags/" . a:type . "_tags;"
-    endtry
-endfunction
+"function! ReadTags(type)
+"    try
+  "      execute "set tags=".$HOME."/dotfiles/tags_files/".
+  "            \ system("cd " . expand('%:p:h') . "; basename `git rev-parse --show-toplevel` | tr -d '\n'").
+  "            \ "/" . a:type . "_tags"
+  "  catch
+  "      execute "set tags=./tags/" . a:type . "_tags;"
+  "  endtry
+"endfunction
 
-augroup TagsAutoCmd
-    autocmd!
-    autocmd BufEnter * :call ReadTags(&filetype)
-augroup END
+"augroup TagsAutoCmd
+"    autocmd!
+ "   autocmd BufEnter * :call ReadTags(&filetype)
+"augroup END
 
 
 "====================osyo-manga/vim-anzu====================
@@ -407,10 +407,9 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
 set statusline=%{anzu#search_status()}
+
 
 
 
@@ -606,6 +605,7 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 " for accelerated-jk
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+
 
 
 
